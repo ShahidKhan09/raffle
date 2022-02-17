@@ -1,6 +1,6 @@
 const httpStatus = require('http-status');
 const { omit } = require('lodash');
-const Raffle = require('../models/raffle');
+// const Raffle = require('../models/raffle');
 
 const fs = require('fs');
 const path = require('path');
@@ -9,10 +9,9 @@ const filePath = path.join(__dirname,"../files/addresses.txt");
 exports.enterRaffle = async (req , res, next) => {
     try {
         const walletAddress = req.body.walletAddress;
-        console.log(walletAddress);
         let data;
 
-        fs.appendFile(filePath, `${walletAddress} \n`, (err) => {
+        fs.appendFile(filePath, `${walletAddress}\n`, (err) => {
             if (err) {
                 throw err;
             }
